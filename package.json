@@ -1,6 +1,7 @@
 {
-  "name": "presence-prayer-final",
+  "name": "presence-prayer",
   "version": "1.0.0",
+  "main": "index.html",
   "private": true,
   "scripts": {
     "dev": "vite",
