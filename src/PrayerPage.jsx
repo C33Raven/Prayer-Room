@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 const initialCandles = [false, false, false, false, false, false];
@@ -34,8 +35,19 @@ export default function PrayerPage() {
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Light a Candle. Say a Prayer.</h1>
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         {candles.map((lit, i) => (
-          <div key={i} onClick={() => !lit && lightCandle(i)} style={{ width: 60, height: 120, background: '#fde68a', borderRadius: 16, position: 'relative', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', cursor: 'pointer' }}>
-            {lit && <div style={{ position: 'absolute', top: 0, color: 'orange', fontSize: '1.5rem' }}>🔥</div>}
+          <div key={i} onClick={() => !lit && lightCandle(i)} style={{ position: 'relative', cursor: 'pointer' }}>
+            <img
+              src='/candles_unlit.jpg'
+              alt='Unlit Candle'
+              style={{
+                width: 100,
+                height: 'auto',
+                opacity: lit ? 0.6 : 1,
+                borderRadius: '0.5rem',
+                boxShadow: '0 0 10px rgba(255,255,255,0.1)'
+              }}
+            />
+            {lit && <div style={{ position: 'absolute', top: 8, right: 8, color: 'orange', fontSize: '1.5rem' }}>🔥</div>}
           </div>
         ))}
       </div>
@@ -60,7 +72,7 @@ export default function PrayerPage() {
             <textarea
               value={newPrayer}
               onChange={(e) => setNewPrayer(e.target.value)}
-              placeholder="Speak from your heart..."
+              placeholder='Speak from your heart...'
               style={{ width: '100%', height: '100px', marginTop: '1rem' }}
             />
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem', marginTop: '1rem' }}>
